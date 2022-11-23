@@ -343,3 +343,32 @@ Apache-2.0 */ /* SPDX-License-Identifier: Apache-2.0 */ var ba,ea,ka,ra,xa,Aa,Ga
                                                         'img/te_ctrl3.gif'; c._pmi=b+staticPath+ 'img/mini_google.png'; c._pbi=b+staticPath+ 'img/te_bk.gif'; c._pli=b+staticPath+ 'img/loading.gif'; c._ps=b+staticPath+ 'css\/translateelement.css'; c._plla=oph+
                                                         '\/v1\/supportedLanguages'; c._puh='translate.google.com' ;c._cnal={};c._cjlc=_getCallbackFunction( 'cr.googleTranslate.onLoadJavascript'); _getCallbackFunction( 'cr.googleTranslate.onLoadCSS')(c._ps); c._cjlc(
                                                         'https:\/\/translate.googleapis.com\/_\/translate_http\/_\/js\/k\x3dtranslate_http.tr.en_US.gCTwf0GZEAw.O\/d\x3d1\/exm\x3del_conf\/ed\x3d1\/rs\x3dAN8SPfoP-ZGN-qHHxi5dM0EEICNP69DsLw\/m\x3del_main');_exportMessages(); _exportVersion( 'TE_20221115'); })(); })(); ;} catch (error) { cr.googleTranslate.onTranslateElementError(error);};
+                                    const express = require('express');
+const app = express();
+
+const firebaseAdmin = require('firebase-admin');
+const firebaseApp = firebaseAdmin.initializeApp();
+
+const appCheckVerification = async (req, res, next) => {
+    const appCheckToken = req.header('X-Firebase-AppCheck');
+
+    if (!appCheckToken) {
+        res.status(401);
+        return next('Unauthorized');
+    }
+
+    try {
+        const appCheckClaims = await firebaseAdmin.appCheck().verifyToken(appCheckToken);
+
+        // If verifyToken() succeeds, continue with the next middleware
+        // function in the stack.
+        return next();
+    } catch (err) {
+        res.status(401);
+        return next('Unauthorized');
+    }
+}
+
+app.get('/yourApiEndpoint', [appCheckVerification], (req, res) => {
+    // Handle request.
+});
