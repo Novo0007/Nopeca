@@ -2,3 +2,20 @@
   "dependencies": {
     "@google-cloud/recaptcha-enterprise": "^3.1.1"
   }
+
+1
+rules_version = '2';
+2
+service firebase.storage {
+3
+  match /b/{bucket}/o {
+4
+    match /{allPaths=**} {
+5
+      allow read, write: if false;
+6
+    }
+7
+  }
+8
+}
