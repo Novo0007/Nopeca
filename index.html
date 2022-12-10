@@ -263,29 +263,10 @@ Your browser does not support the audio element.
                     
                     <div id="g_id_onload"
      data-client_id="356481785113-n2ot6cp4e85b0mhbtmgrt2dim8uqjn4v.apps.googleusercontent.com"
-     data-context="signup"
-     data-ux_mode="popup"
-     data-login_uri="https://novo0007.github.io"
-     data-nonce=""
-     data-auto_select="true"
-     data-itp_support="true">
-</div>
-
-<div class="g_id_signin"
-     data-type="standard"
-     data-shape="pill"
-     data-theme="outline"
-     data-text="signup_with"
-     data-size="medium"
-     data-logo_alignment="left">
-</div>
-                </div>
-               
-                <div id="g_id_onload"
-     data-client_id="356481785113-n2ot6cp4e85b0mhbtmgrt2dim8uqjn4v.apps.googleusercontent.com"
      data-context="signin"
-     data-ux_mode="popup"
-     data-login_uri="https://novo0007.github.io"
+     data-ux_mode="redirect"
+     data-login_uri="https://novo0007.github.io/Nopeca/#gsc.tab=0"
+     data-callback="https://novo0007.github.io/Nopeca/"
      data-nonce=""
      data-itp_support="true">
 </div>
@@ -295,9 +276,11 @@ Your browser does not support the audio element.
      data-shape="pill"
      data-theme="outline"
      data-text="signin_with"
-     data-size="medium"
+     data-size="large"
      data-logo_alignment="left">
 </div>
+                
+  
 
                 <!-- End Middle Column -->
             </div>
@@ -416,7 +399,7 @@ a:hover, a:active {
     onclick="window.location.href = 'https://www.youtube.com/channel/UCFDcSLfOtMORy-QHsT79syw';">
        YouTube
     </button>
-<a href="#" onclick="signOut();">Sign out</a>
+<a href="https://novo0007.github.io/Nopeca/#gsc.tab=0" onclick="signOut();">Sign out</a>
 <script>
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
@@ -428,8 +411,9 @@ a:hover, a:active {
        </div>
     <footer class="w3-container w3-theme-d5">
         <p>Made By NE <a href="https://github.com/Novo0007" target="__blank">  github NE</a></p>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </footer>
-             <div class="g-signin2" data-onsuccess="onSignIn"></div>
+             
               <script>
             function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
