@@ -329,11 +329,16 @@ a:hover, a:active {
                 <div class="w3-card w3-round w3-white w3-center">
                     <div class="w3-container">
                         <p><strong>Full Movie (Hindi)</strong></p>
-                        <video width="320" height="240" controls="">
+                        <video id="video1"width="320" height="240" controls="">
   <source src="https://firebasestorage.googleapis.com/v0/b/nopeca-106bd.appspot.com/o/videos%2FBlack-Panther-.mp4?alt=media&token=cddd5881-4a17-401d-a84f-95a8b8556749" type="video/mp4">
   </video>
-                       <br>
-              <span class="inline-metadata-item style-scope ytd-video-meta-block">1.1k  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                       <div style="text-align:center"> 
+  <button onclick="playPause()">Play/Pause</button> 
+  <button onclick="makeBig()">Big</button>
+  <button onclick="makeSmall()">Small</button>
+  <button onclick="makeNormal()">Normal</button>
+  <br><br>
+          <span class="inline-metadata-item style-scope ytd-video-meta-block">1.1k  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
   <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"></path>
   <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
 </svg></span> 
@@ -475,7 +480,28 @@ a:hover, a:active {
   gtag('config', 'UA-250137395-1');
 </script>
          
+<script> 
+var myVideo = document.getElementById("video1"); 
 
+function playPause() { 
+  if (myVideo.paused) 
+    myVideo.play(); 
+  else 
+    myVideo.pause(); 
+} 
+
+function makeBig() { 
+    myVideo.width = 560; 
+} 
+
+function makeSmall() { 
+    myVideo.width = 320; 
+} 
+
+function makeNormal() { 
+    myVideo.width = 420; 
+} 
+</script>
 
 
 </body>
