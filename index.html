@@ -212,6 +212,10 @@ Your browser does not support the audio element.
                         <div class="w3-card w3-round w3-black">
                             <div class="w3-container w3-padding">
                                 <h6 class="w3-opacity">FireIce Browser</h6>
+                                <body onload="startTime()">
+         <div id="txt"></div>
+    </body>
+
                                 <script async src="https://cse.google.com/cse.js?cx=115e2fc7d9b384259">
 </script>
 <div class="gcse-search"></div>
@@ -450,28 +454,22 @@ Your browser does not support the audio element.
   gtag('config', 'UA-250137395-1');
 </script>
          
-<script> 
-var myVideo = document.getElementById("video1"); 
-
-function playPause() { 
-  if (myVideo.paused) 
-    myVideo.play(); 
-  else 
-    myVideo.pause(); 
-} 
-
-function makeBig() { 
-    myVideo.width = 560; 
-} 
-
-function makeSmall() { 
-    myVideo.width = 320; 
-} 
-
-function makeNormal() { 
-    myVideo.width = 420; 
-} 
-
-
+<script>
+     function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('txt').innerHTML =
+        h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+    }
+           </script>
 </body>
 </html>
